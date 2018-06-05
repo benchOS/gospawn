@@ -1,6 +1,6 @@
 {
   "name": "gospawn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Benny Component For Loading systemd-nspawn Into A Benny Container With benOS Server Edition, Arch Or Debian-Based Distros.",
   "dependencies": {},
   "devDependencies": {},

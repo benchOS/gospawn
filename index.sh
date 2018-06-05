@@ -11,7 +11,6 @@ while [ "$1" != "" ]; do
     --force)  GS_FORCE=true; shift ;;
     --size)   GS_SIZE="$2"; shift; shift ;;
     --ubuntu) UBUNTU="$2"; shift; shift ;;
-    --benos)  BENOS="$2"; shift; shift ;;
     --debian) DEBIAN="$2"; shift; shift ;;
     --arch)   ARCH=true; shift; ;;
     --help)   shift; ;;
@@ -25,7 +24,6 @@ if [ "$GS_IMG" == "" ]; then
   echo
   echo "  --force"
   echo "  --size    <image-size>"
-  echo "  --benos  <version>"
   echo "  --ubuntu  <version>"
   echo "  --debian  <version>"
   echo "  --arch"
@@ -35,7 +33,6 @@ if [ "$GS_IMG" == "" ]; then
   echo "  gospawn --arch --size 4GB"
   echo "  gospawn --ubuntu xenial --size 3GB"
   echo "  gospawn --debian stable"
-  echo "  gospawn --benos latest"
   echo
   exit 1
 fi
@@ -50,7 +47,6 @@ required () {
 }
 
 [ "$ARCH" != "" ] && required pacstrap
-[ "$BENOS" != "" ] && required bengo
 [ "$UBUNTU" != "" ] && required debootstrap
 [ "$DEBIAN" != "" ] && required debootstrap
 
@@ -95,9 +91,6 @@ elif [ "$UBUNTU" != "" ]; then
 elif [ "$DEBIAN" != "" ]; then
   echo Installing Debian ...
   build sudo debootstrap "$DEBIAN" "$MNT" http://deb.debian.org/debian/
-elif [ "$BENOS" != "" ]; then
-  echo Installing benOS Server Edition ...
-  build sudo bengo "$BENOS" "$MNT" http://server.benos.io/download/
 else
   sudo losetup -d "$DEV"
   echo Done. Mount the first partition and install your preferred OS.
