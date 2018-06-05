@@ -1,0 +1,20 @@
+{
+  "name": "gospawn",
+  "version": "1.0.0",
+  "description": "Benny Component For Loading systemd-nspawn Into A Benny Container With benOS Server Edition, Arch Or Debian-Based Distros.",
+  "dependencies": {},
+  "devDependencies": {},
+  "bin": {
+    "gospawn": "./index.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benchOS/gospawn.git"
+  },
+  "author": "Bench Open Systems",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benchOS/gospawn/issues"
+  },
+  "homepage": "https://github.com/benchOS/gospawn"
+}
